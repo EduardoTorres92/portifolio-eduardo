@@ -1,0 +1,125 @@
+/* Seções abaixo do hero: escala de site (--su), um contêiner de 1200, fio de borda a borda entre as seções, o mesmo
+   cabeçalho (rótulo "01 / ..." em cinza + título) e as mesmas peças pequenas. */
+.secao {
+  position: relative;
+  padding: var(--s-folga) var(--s-margem);
+  border-top: 1px solid var(--fio);
+  scroll-margin-top: 0;
+}
+.secao__dentro {
+  max-width: var(--s-largura);
+  margin: 0 auto;
+}
+.secao__rotulo {
+  display: block;
+  font: 700 var(--s-rotulo) / 1.3 var(--sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--texto-3);
+}
+.secao__topo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* dois títulos: condensado (Anton) e grotesco apertado (Manrope); a última linha ou palavra em vermelho */
+.titulo-cond {
+  margin-top: calc(18 * var(--su));
+  font: 400 var(--s-h2) / 0.98 var(--display);
+  text-transform: uppercase;
+  color: var(--texto);
+}
+.titulo-grot {
+  margin-top: calc(16 * var(--su));
+  font: 800 var(--s-h2-grot) / 1 var(--sans);
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  color: var(--texto);
+}
+.vermelho { color: var(--vermelho-texto); }
+.pq { color: var(--vermelho); }   /* o ponto final quadrado em vermelho */
+
+/* link em caixa alta com seta */
+.link-seta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 44px;
+  padding: 6px 0;
+  font: 600 14px / 1 var(--sans);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--texto);
+  white-space: nowrap;
+}
+.link-seta svg { width: 18px; height: 18px; transition: translate 0.2s var(--ease); }
+@media (hover: hover) and (pointer: fine) {
+  html:not(.rolando) .link-seta:hover svg { translate: 4px 0; }
+}
+
+/* setas e ícones de traço (desenhados aqui) */
+.ico { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* abas com sublinhado vermelho (filtro dos projetos) */
+.abas {
+  display: flex;
+  align-items: stretch;
+  gap: calc(8 * var(--su));
+}
+.aba {
+  position: relative;
+  padding: 18px 18px 17px;
+  font: 500 16px / 1 var(--sans);
+  color: var(--texto-2);
+  transition: color var(--t-micro) var(--ease), scale 0.14s var(--ease);
+}
+.aba::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  background: var(--vermelho);
+  scale: 0 1;
+  transition: scale 0.3s var(--ease);
+}
+.aba[aria-pressed='true'] { color: var(--texto); }
+.aba[aria-pressed='true']::after { scale: 1 1; }
+.aba:active { scale: 0.96; }
+.aba:focus-visible { outline: 2px solid var(--sel); outline-offset: -4px; }
+@media (hover: hover) and (pointer: fine) {
+  html:not(.rolando) .aba:not([aria-pressed='true']):hover { color: var(--texto); }
+}
+
+/* tags em caixinha de fio */
+.tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.tags li {
+  padding: 9px 13px;
+  border: 1px solid var(--fio-forte);
+  font: 500 14px / 1 var(--sans);
+  color: var(--texto-2);
+  white-space: nowrap;
+}
+
+/* ícone em anel vermelho (contato, botão de play) */
+.anel {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1.5px solid var(--vermelho);
+  border-radius: 50%;
+  color: var(--vermelho-texto);
+  transition: background-color var(--t-micro) var(--ease), color var(--t-micro) var(--ease);
+}
+.anel svg { width: 19px; height: 19px; }
+
+@media (max-width: 760px) {
+  .secao__topo { flex-direction: column; align-items: flex-start; }
+  .titulo-cond { margin-top: 14px; }
+  .aba { padding: 16px 12px 15px; font-size: 15px; }
+}

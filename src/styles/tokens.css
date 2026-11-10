@@ -1,0 +1,90 @@
+/* Kairo: tokens. Nenhuma cor, fonte ou curva solta nas seções: tudo sai daqui. */
+:root {
+  /* página: quase preto com grão fino por cima (base.css) */
+  --pagina: #0b0909;
+  --texto: #f3eeec;
+  --branco: #fff;              /* letra branca sobre vermelho (botões, play, alça) */
+  --texto-2: #b3abaa;          /* parágrafos */
+  --texto-3: #807877;          /* rótulos, legendas */
+  --fio: rgba(255, 255, 255, 0.09);
+  --fio-forte: rgba(255, 255, 255, 0.16);
+
+  /* acento: vermelho puro em bloco, como pede a marca */
+  --vermelho: #e8261c;         /* botão, ponto quadrado, card do fecho */
+  --vermelho-texto: #ff4a3d;   /* números, rótulos e palavras em vermelho sobre o preto */
+  --vermelho-sombra: rgba(255, 46, 30, 0.45);
+  --titulo-topo: #c9241b;      /* PORTFÓLIO: vermelho que escurece para baixo */
+  --titulo-pe: #4d0e0b;
+  --card-topo: #8e1a14;        /* card vermelho do Sobre */
+  --card-pe: #4e0e0b;
+
+  /* superfícies */
+  --cartao: #121010;
+  --cartao-borda: rgba(255, 255, 255, 0.1);
+
+  /* ferramenta dos agentes (seleção, etiqueta de medida, placeholder) */
+  --sel: #3ea2ff;
+  --sel-etiqueta: #1b8cf2;
+  --marcador: rgba(158, 164, 178, 0.2);          /* caixa pequena (texto, botão) */
+  --marcador-grande: rgba(158, 164, 178, 0.05);  /* caixa grande (foto, título, card): não acinzenta a tela */
+  --marcador-quadro: rgba(128, 134, 150, 0.025);  /* o fundo de rascunho: só um tom acima do preto */
+
+  /* tipos (todos OFL, pelo Fontsource) */
+  --display: 'Anton', 'Bebas Neue', 'Arial Narrow', Impact, sans-serif;
+  --mao: 'Caveat Variable', 'Segoe Script', cursive;
+  --sans: 'Manrope Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* escala de cena (hero): 1 = 1 px num quadro de 1440×900; acompanha a largura e a altura da tela, o que vier
+     primeiro, para o hero inteiro caber na primeira tela. Em tela larga e baixa (notebook de 768 de altura) não
+     encolhe abaixo de 80% do que a largura pede. */
+  --u: max(100vw / 1440 * 0.8, min(100vw / 1440, 100svh / 900));
+  --margem: calc(56 * var(--u));
+
+  /* escala de site (seções abaixo do hero): 1 px a partir de 1280, só encolhe abaixo; nunca cresce */
+  --su: min(1px, 100vw / 1280);
+  --s-h2: calc(64 * var(--su));
+  --s-h2-grot: calc(48 * var(--su));
+  --s-fecho: calc(80 * var(--su));
+  --s-h3: calc(22 * var(--su));
+  --s-corpo: calc(18 * var(--su));
+  --s-pequeno: calc(15 * var(--su));
+  --s-rotulo: 13px;
+  --s-numero: calc(44 * var(--su));
+  --s-folga: calc(120 * var(--su));
+  --s-titulo-conteudo: calc(48 * var(--su));
+  --s-largura: 1280px;
+  --s-margem: calc(48 * var(--su));
+
+  /* movimento */
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-troca: cubic-bezier(0.77, 0, 0.175, 1);
+  --t-micro: 0.16s;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --u: calc(100vw / 390);
+    --margem: 20px;
+    --su: min(1px, 100vw / 390);
+    --s-h2: calc(40 * var(--su));
+    --s-h2-grot: calc(32 * var(--su));
+    --s-fecho: calc(46 * var(--su));
+    --s-h3: calc(20 * var(--su));
+    --s-corpo: calc(16 * var(--su));
+    --s-pequeno: calc(15 * var(--su));
+    --s-rotulo: 12px;
+    --s-numero: calc(32 * var(--su));
+    --s-folga: calc(88 * var(--su));
+    --s-titulo-conteudo: calc(32 * var(--su));
+    --s-margem: 20px;
+  }
+}
+
+/* ?reel (ou ?reel=0.75): gravar a tela com o celular. Só o branco das letras desce (o celular estoura os brancos);
+   vermelhos, foto, telas dos projetos e cinzas ficam como estão. --reel vem do script do index.html. */
+html.reel {
+  --texto: rgb(calc(243 * var(--reel)) calc(238 * var(--reel)) calc(236 * var(--reel)));
+  --branco: rgb(calc(255 * var(--reel)) calc(255 * var(--reel)) calc(255 * var(--reel)));
+  scrollbar-width: none;
+}
+html.reel::-webkit-scrollbar { display: none; }

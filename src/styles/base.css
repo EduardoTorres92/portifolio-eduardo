@@ -1,0 +1,88 @@
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  background: var(--pagina);
+  color: var(--texto);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  position: relative;          /* o palco dos agentes cobre o body inteiro */
+  margin: 0;
+  background: transparent;     /* o fundo fica no html, para o grão (body::before) ficar entre ele e o conteúdo */
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+/* nada que um agente desloque ou arraste (data-ajusta, cópias) alarga a página para o lado */
+main { overflow-x: clip; }
+img, svg, video { display: block; max-width: 100%; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; padding: 0; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p, ul, ol, figure, blockquote { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+b, strong { font-weight: inherit; }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--sel); outline-offset: 3px; }
+::selection { background: var(--vermelho); color: #fff; }
+
+/* grão fino por cima do preto, parado na tela */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 -0.2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* ponto vermelho aceso (chip, status, selo) */
+.ponto {
+  display: inline-block;
+  flex: none;
+  width: 0.62em;
+  height: 0.62em;
+  border-radius: 50%;
+  background: var(--vermelho-texto);
+  box-shadow: 0 0 0.6em var(--vermelho-sombra);
+}
+
+/* Hover e foco na linguagem da marca: a seleção do editor (fio azul com as quatro alças) em volta do que é
+   clicável. Só com mouse; no teclado aparece pelo foco. */
+.sel { position: relative; }
+.sel::before,
+.sel::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--t-micro) var(--ease);
+}
+.sel::before { inset: -6px -8px; border: 1px solid var(--sel); }
+.sel::after {
+  inset: -8.5px -10.5px;
+  background:
+    linear-gradient(#fff, #fff) 0 0 / 5px 5px no-repeat,
+    linear-gradient(#fff, #fff) 100% 0 / 5px 5px no-repeat,
+    linear-gradient(#fff, #fff) 0 100% / 5px 5px no-repeat,
+    linear-gradient(#fff, #fff) 100% 100% / 5px 5px no-repeat;
+}
+@media (hover: hover) and (pointer: fine) {
+  html:not(.rolando) .sel:hover::before,
+  html:not(.rolando) .sel:hover::after { opacity: 1; }
+}
+.sel:focus-visible { outline: none; }
+.sel:focus-visible::before,
+.sel:focus-visible::after { opacity: 1; }
+.sel:active { scale: 0.97; }
+.sel { transition: scale 0.14s var(--ease); }

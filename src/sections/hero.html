@@ -1,0 +1,50 @@
+<!-- Hero (uma tela, escala de cena). Cada bloco com data-camada é uma camada que os agentes montam: quadro (o fundo),
+     titulo, texto (digitado), bloco (caixa que aparece; se tiver camadas dentro, só o fundo e a borda dela) e foto.
+     data-parte divide o hero em montagens separadas no celular, onde ele tem mais de uma tela. -->
+<section class="hero" id="topo" data-montagem="hero">
+  <div class="hero__quadro" data-camada="quadro" aria-hidden="true"></div>
+
+  <div class="hero__a" data-parte>
+    <p class="hero__papel">
+      <span class="hero__papel-1" data-camada="texto">Vibe Coding</span>
+      <span class="hero__papel-2" data-camada="texto">Python · Automações com IA</span>
+    </p>
+    <p class="hero__status" data-camada="texto"><i class="ponto" aria-hidden="true"></i>Disponível para novos projetos</p>
+
+    <p class="hero__titulo" data-camada="titulo" aria-hidden="true"><span>PORTFÓLIO</span></p>
+
+    <!-- foto: volta aqui quando houver o retrato recortado (ver o guia, "A foto do hero") -->
+
+    <div class="hero__esq">
+      <h1 class="hero__quem">
+        <span class="hero__ola" data-camada="texto">Olá, eu sou</span>
+        <span class="hero__nome" data-camada="texto">EDUARDO<span class="pq">.</span></span>
+      </h1>
+      <p class="hero__cargo" data-camada="texto">Dev Vibe Coding<br />Python &amp; IA</p>
+      <p class="hero__texto" data-camada="texto">Construo sites, painéis e apps com IA para negócios reais, do briefing ao ar. Python, dados e automações que tiram o trabalho repetido do seu dia.</p>
+      <a class="hero__botao sel" href="#projetos" data-camada="bloco"><span data-camada="texto"><span>Ver projetos</span><svg class="ico" aria-hidden="true"><use href="#u-baixo"/></svg></span></a>
+      <p class="hero__local" data-camada="texto"><svg class="ico" aria-hidden="true"><use href="#u-local"/></svg><span>Sorocaba/SP · atendo remoto</span></p>
+    </div>
+  </div>
+
+  <div class="hero__dir" data-parte>
+    <p class="hero__lema">
+      <span class="hero__aster anel" data-camada="bloco" aria-hidden="true"><svg class="ico"><use href="#u-aster"/></svg></span>
+      <span data-camada="texto">Cada tarefa repetida.<br />Uma automação.</span>
+    </p>
+    <ul class="hero__numeros" data-duplica>
+      <li><strong data-camada="texto">9</strong><span data-camada="texto">Projetos públicos<br />no GitHub</span></li>
+      <li><strong data-camada="texto">3</strong><span data-camada="texto">Apps com IA<br />de verdade</span></li>
+      <li><a class="hero__num-link sel" href="#projetos"><strong data-camada="texto">4</strong><span data-camada="texto">Demos no ar<br />agora<svg class="ico" aria-hidden="true"><use href="#u-ne"/></svg></span></a></li>
+    </ul>
+  </div>
+
+  <div class="hero__pe" data-parte>
+    <a class="hero__caso sel" href="#bastidor">
+      <span class="hero__play anel" data-camada="bloco" aria-hidden="true"><svg class="ico"><use href="#u-play"/></svg></span>
+      <span data-camada="texto">Ver um caso por dentro</span>
+      <span class="hero__caso-tipo" data-camada="texto">Dash Vendas</span>
+    </a>
+    <p class="hero__anos" data-camada="texto">Projetos selecionados / 2025–2026</p>
+  </div>
+</section>

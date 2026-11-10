@@ -1,0 +1,60 @@
+<!-- 04 Contato: o fecho. Título e chamada à esquerda, canais no meio, o card inclinado do replay à direita (o play monta
+     a página de novo); embaixo, o formulário em sanfona e o rodapé. Quando termina de montar (data-fecho), os agentes
+     entram numa fila que passeia solta pela tela, longe da copy. -->
+<section class="secao contato" id="contato" data-montagem="contato" data-reforco="1" data-fecho>
+  <div class="contato__quadro" data-camada="quadro" aria-hidden="true"></div>
+  <div class="secao__dentro">
+    <div class="contato__grade">
+      <div class="contato__chamada">
+        <span class="secao__rotulo" data-camada="texto">04 / Seu próximo projeto</span>
+        <h2 class="titulo-cond contato__titulo"><span data-camada="texto" data-ajusta="-52,0">Me conta o que</span><br /><span data-camada="texto">se repete<span class="pq">.</span></span></h2>
+        <p class="contato__texto" data-camada="texto">Me conta qual tarefa toma o seu tempo toda semana. Eu respondo com o que dá para automatizar e como.</p>
+        <a class="contato__cta" href="mailto:eduardotorres.nexus@gmail.com?subject=Projeto">
+          <span class="anel" data-camada="bloco" aria-hidden="true"><svg class="ico"><use href="#u-ne"/></svg></span>
+          <span data-camada="texto">Começar uma conversa</span>
+        </a>
+      </div>
+
+      <ul class="contato__canais" data-duplica>
+        <li><a class="canal" href="mailto:eduardotorres.nexus@gmail.com"><span class="anel" data-camada="bloco" aria-hidden="true"><svg class="ico"><use href="#u-email"/></svg></span><span class="canal__txt"><span data-camada="texto">E-mail</span><strong data-camada="texto">eduardotorres.nexus@gmail.com</strong></span><svg class="ico canal__seta" aria-hidden="true"><use href="#u-ne"/></svg></a></li>
+        <li><a class="canal" href="https://wa.me/5515991040846" target="_blank" rel="noopener"><span class="anel" data-camada="bloco" aria-hidden="true"><svg class="ico"><use href="#u-zap"/></svg></span><span class="canal__txt"><span data-camada="texto">WhatsApp</span><strong data-camada="texto">+55 15 99104-0846</strong></span><svg class="ico canal__seta" aria-hidden="true"><use href="#u-ne"/></svg></a></li>
+        <li><a class="canal" href="https://instagram.com/eduardotorres992" target="_blank" rel="noopener"><span class="anel" data-camada="bloco" aria-hidden="true"><svg class="ico"><use href="#u-insta"/></svg></span><span class="canal__txt"><span data-camada="texto">Instagram</span><strong data-camada="texto">@eduardotorres992</strong></span><svg class="ico canal__seta" aria-hidden="true"><use href="#u-ne"/></svg></a></li>
+        <li><a class="canal" href="https://github.com/EduardoTorres92" target="_blank" rel="noopener"><span class="anel" data-camada="bloco" aria-hidden="true"><svg class="ico"><use href="#u-github"/></svg></span><span class="canal__txt"><span data-camada="texto">GitHub</span><strong data-camada="texto">EduardoTorres92</strong></span><svg class="ico canal__seta" aria-hidden="true"><use href="#u-ne"/></svg></a></li>
+        <li><a class="canal" href="https://www.linkedin.com/in/eduardo-torres-769aa963/" target="_blank" rel="noopener"><span class="anel" data-camada="bloco" aria-hidden="true"><svg class="ico"><use href="#u-linkedin"/></svg></span><span class="canal__txt"><span data-camada="texto">LinkedIn</span><strong data-camada="texto">Eduardo Torres</strong></span><svg class="ico canal__seta" aria-hidden="true"><use href="#u-ne"/></svg></a></li>
+        <li><p class="canal"><span class="anel" data-camada="bloco" aria-hidden="true"><svg class="ico"><use href="#u-local"/></svg></span><span class="canal__txt"><span data-camada="texto">Onde</span><strong data-camada="texto">Sorocaba/SP · remoto</strong></span></p></li>
+      </ul>
+
+      <figure class="replay" data-alvo>
+        <div class="replay__card" data-camada="bloco">
+          <span class="replay__marca" data-camada="texto">Eduardo Torres</span>
+          <span class="replay__tipo" data-camada="texto">Replay</span>
+          <p class="replay__grande"><span data-camada="texto">Montada</span><br /><span class="vermelho" data-camada="texto">ao vivo.</span></p>
+          <button class="replay__play" type="button" aria-label="Montar a página de novo" data-camada="bloco"><svg class="ico" aria-hidden="true"><use href="#u-play"/></svg></button>
+        </div>
+        <figcaption class="replay__legenda" data-camada="texto">Esta página · montada por agentes</figcaption>
+      </figure>
+    </div>
+
+    <details class="form">
+      <summary class="form__cab"><span data-camada="texto">Me conta do seu projeto</span><i class="sanfona__sinal" aria-hidden="true"></i></summary>
+      <form class="form__corpo" action="mailto:eduardotorres.nexus@gmail.com" method="post" enctype="text/plain">
+        <label><span>Nome</span><input name="nome" type="text" autocomplete="name" required /></label>
+        <label><span>E-mail</span><input name="email" type="email" autocomplete="email" required /></label>
+        <label class="form__largo"><span>O que se repete toda semana?</span><textarea name="tarefa" rows="3" required></textarea></label>
+        <button class="form__enviar" type="submit">Mandar <svg class="ico" aria-hidden="true"><use href="#u-dir"/></svg></button>
+      </form>
+    </details>
+  </div>
+
+  <footer class="rodape">
+    <a class="rodape__marca sel" href="#topo" data-camada="texto">EDUARDO TORRES<span class="pq">.</span></a>
+    <p class="rodape__texto" data-camada="texto">© 2026 Eduardo Torres · Construindo coisas que resolvem problemas.</p>
+    <ul class="rodape__links">
+      <li><a class="sel" href="https://github.com/EduardoTorres92" target="_blank" rel="noopener" aria-label="GitHub" data-camada="bloco"><svg class="ico" aria-hidden="true"><use href="#u-github"/></svg></a></li>
+      <li><a class="sel" href="https://www.linkedin.com/in/eduardo-torres-769aa963/" target="_blank" rel="noopener" aria-label="LinkedIn" data-camada="bloco"><svg class="ico" aria-hidden="true"><use href="#u-linkedin"/></svg></a></li>
+      <li><a class="sel" href="mailto:eduardotorres.nexus@gmail.com" aria-label="E-mail" data-camada="bloco"><svg class="ico" aria-hidden="true"><use href="#u-email"/></svg></a></li>
+      <li><a class="sel" href="#topo" aria-label="Voltar ao topo" data-camada="bloco"><svg class="ico" aria-hidden="true"><use href="#u-topo"/></svg></a></li>
+    </ul>
+  </footer>
+  <p class="sr-only" aria-live="polite" data-aviso></p>
+</section>

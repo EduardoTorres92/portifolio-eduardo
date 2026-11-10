@@ -1,0 +1,161 @@
+<!-- 01 Projetos: cabeçalho, filtro em abas com busca, três cards (print, número vermelho, nome, categoria/ano) e a
+     faixa das ferramentas. Os cards montam em paralelo; depois um agente testa o filtro. -->
+<section class="secao projetos" id="projetos" data-montagem="projetos" data-reforco="4">
+  <div class="secao__dentro">
+    <div class="secao__topo">
+      <div>
+        <span class="secao__rotulo" data-camada="texto">01 / Projetos selecionados</span>
+        <h2 class="titulo-grot" data-camada="texto" data-ajusta="64,0">Trabalho que roda de verdade<span class="pq">.</span></h2>
+      </div>
+      <a class="link-seta sel" href="https://github.com/EduardoTorres92" target="_blank" rel="noopener" data-camada="texto"><span>Todos no GitHub</span> <svg class="ico" aria-hidden="true"><use href="#u-dir"/></svg></a>
+    </div>
+
+    <div class="projetos__barra">
+      <div class="abas filtro" role="group" aria-label="Filtrar projetos" data-teste="1,0">
+        <button class="aba" type="button" data-filtro="todos" aria-pressed="true" data-camada="texto">Todos</button>
+        <button class="aba" type="button" data-filtro="ia" aria-pressed="false" data-camada="texto">IA</button>
+        <button class="aba" type="button" data-filtro="sites" aria-pressed="false" data-camada="texto">Sites</button>
+        <button class="aba" type="button" data-filtro="dados" aria-pressed="false" data-camada="texto">Dados</button>
+      </div>
+      <label class="busca">
+        <svg class="ico" aria-hidden="true"><use href="#u-busca"/></svg>
+        <span class="busca__rotulo" data-camada="texto">Buscar</span>
+        <input class="busca__campo" type="search" placeholder="Nome ou categoria" autocomplete="off" data-camada="bloco" />
+      </label>
+    </div>
+
+    <ul class="projetos__grade" data-duplica>
+      <li class="projeto" data-tipo="ia" data-busca="fit.ai fitai calistenia treino coach claude app ia strava">
+        <a class="projeto__link" href="https://fitai-eduardo.netlify.app" target="_blank" rel="noopener">
+          <span class="projeto__img" data-camada="foto"><img src="/img/proj-fitai.webp" width="1280" height="800" alt="Telas do FIT.AI: plano de treino, início e o Coach AI" loading="lazy" decoding="async" /></span>
+          <span class="projeto__etiqueta" data-camada="texto">App com IA</span>
+          <span class="projeto__pe" data-camada="bloco">
+            <strong class="projeto__num" data-camada="texto">01</strong>
+            <span class="projeto__nome" data-camada="texto">FIT.AI</span>
+            <span class="projeto__meta" data-camada="texto">IA / 2026</span>
+            <svg class="ico projeto__seta" aria-hidden="true"><use href="#u-ne"/></svg>
+          </span>
+        </a>
+      </li>
+      <li class="projeto" data-tipo="ia" data-busca="juri-ai juriai advocacia saas ia rag ocr django langchain">
+        <a class="projeto__link" href="https://github.com/EduardoTorres92/Juri-AI" target="_blank" rel="noopener">
+          <span class="projeto__img" data-camada="foto"><img src="/img/proj-juri.webp" width="1280" height="800" alt="Painel do JuriAI com o assistente jurídico que lê os documentos do cliente" loading="lazy" decoding="async" /></span>
+          <span class="projeto__etiqueta" data-camada="texto">SaaS com IA</span>
+          <span class="projeto__pe" data-camada="bloco">
+            <strong class="projeto__num" data-camada="texto">02</strong>
+            <span class="projeto__nome" data-camada="texto">Juri-AI</span>
+            <span class="projeto__meta" data-camada="texto">IA / 2026</span>
+            <svg class="ico projeto__seta" aria-hidden="true"><use href="#u-ne"/></svg>
+          </span>
+        </a>
+      </li>
+      <li class="projeto" data-tipo="sites" data-busca="banho e tosa sol pet shop site sorocaba canvas whatsapp">
+        <a class="projeto__link" href="https://banhoetosasol.netlify.app" target="_blank" rel="noopener">
+          <span class="projeto__img" data-camada="foto"><img src="/img/proj-banho.webp" width="1280" height="800" alt="Site do Banho e Tosa Sol em modo escuro, com o cachorro coberto de espuma" loading="lazy" decoding="async" /></span>
+          <span class="projeto__etiqueta" data-camada="texto">Cliente real</span>
+          <span class="projeto__pe" data-camada="bloco">
+            <strong class="projeto__num" data-camada="texto">03</strong>
+            <span class="projeto__nome" data-camada="texto">Banho e Tosa Sol</span>
+            <span class="projeto__meta" data-camada="texto">Sites / 2026</span>
+            <svg class="ico projeto__seta" aria-hidden="true"><use href="#u-ne"/></svg>
+          </span>
+        </a>
+      </li>
+      <li class="projeto" data-tipo="sites" data-busca="advocacia modelo site escritório cnj datajud oab">
+        <a class="projeto__link" href="https://advocacia-modelo-eduardo.netlify.app" target="_blank" rel="noopener">
+          <span class="projeto__img" data-camada="foto"><img src="/img/proj-advocacia.webp" width="1280" height="800" alt="Abertura do modelo de site para advocacia, com a biblioteca do escritório" loading="lazy" decoding="async" /></span>
+          <span class="projeto__etiqueta" data-camada="texto">Site revendável</span>
+          <span class="projeto__pe" data-camada="bloco">
+            <strong class="projeto__num" data-camada="texto">04</strong>
+            <span class="projeto__nome" data-camada="texto">Site para advocacia</span>
+            <span class="projeto__meta" data-camada="texto">Sites / 2026</span>
+            <svg class="ico projeto__seta" aria-hidden="true"><use href="#u-ne"/></svg>
+          </span>
+        </a>
+      </li>
+      <li class="projeto" data-tipo="dados" data-busca="painel comercial dados faturamento meta erp dashboard">
+        <a class="projeto__link" href="https://painel-comercial-demo.netlify.app/" target="_blank" rel="noopener">
+          <span class="projeto__img" data-camada="foto"><img src="/img/proj-painel.webp" width="1280" height="800" alt="Painel Comercial no tema escuro, com faturamento por filial e meta do mês" loading="lazy" decoding="async" /></span>
+          <span class="projeto__etiqueta" data-camada="texto">Painel</span>
+          <span class="projeto__pe" data-camada="bloco">
+            <strong class="projeto__num" data-camada="texto">05</strong>
+            <span class="projeto__nome" data-camada="texto">Painel Comercial</span>
+            <span class="projeto__meta" data-camada="texto">Dados / 2026</span>
+            <svg class="ico projeto__seta" aria-hidden="true"><use href="#u-ne"/></svg>
+          </span>
+        </a>
+      </li>
+      <li class="projeto" data-tipo="dados" data-busca="dash vendas dados python streamlit etl pandas plotly faturamento">
+        <a class="projeto__link" href="https://github.com/EduardoTorres92/dash_vendas" target="_blank" rel="noopener">
+          <span class="projeto__img" data-camada="foto"><img src="/img/proj-dash.webp" width="1280" height="800" alt="Dash Vendas, painel de faturamento líquido por marca em Streamlit" loading="lazy" decoding="async" /></span>
+          <span class="projeto__etiqueta" data-camada="texto">Python + ETL</span>
+          <span class="projeto__pe" data-camada="bloco">
+            <strong class="projeto__num" data-camada="texto">06</strong>
+            <span class="projeto__nome" data-camada="texto">Dash Vendas</span>
+            <span class="projeto__meta" data-camada="texto">Dados / 2025</span>
+            <svg class="ico projeto__seta" aria-hidden="true"><use href="#u-ne"/></svg>
+          </span>
+        </a>
+      </li>
+    </ul>
+    <p class="projetos__vazio" hidden>Nenhum projeto com esse nome. <button type="button" class="projetos__limpa">Limpar a busca</button></p>
+  </div>
+
+  <!-- ferramentas: faixa que corre sozinha (pausa, setas) e "ver todas" abre a grade com os nomes -->
+  <div class="secao__dentro ferramentas" data-montagem="ferramentas">
+    <div class="ferramentas__topo">
+      <p class="ferramentas__titulo"><span data-camada="texto">Feito com</span><strong data-camada="texto">As ferramentas de sempre.</strong></p>
+      <div class="ferramentas__ctl">
+        <button class="ferramentas__todas" type="button" aria-expanded="false" data-camada="texto"><span class="ferramentas__todas-t">Ver todas (17)</span> <svg class="ico" aria-hidden="true"><use href="#u-mais"/></svg></button>
+        <button class="ferramentas__btn ferramentas__pausa" type="button" aria-label="Pausar a faixa" aria-pressed="false" data-camada="bloco"><svg class="ico" aria-hidden="true"><use href="#u-pausa"/></svg></button>
+        <button class="ferramentas__btn" type="button" aria-label="Voltar" data-passo="-1" data-camada="bloco"><svg class="ico" aria-hidden="true"><use href="#u-esq-v"/></svg></button>
+        <button class="ferramentas__btn" type="button" aria-label="Avançar" data-passo="1" data-camada="bloco"><svg class="ico" aria-hidden="true"><use href="#u-dir-v"/></svg></button>
+      </div>
+    </div>
+    <div class="ferramentas__janela">
+      <ul class="ferramentas__trilho">
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-python"/></svg><span>Python</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-postgresql"/></svg><span>PostgreSQL</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-pandas"/></svg><span>Pandas</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-streamlit"/></svg><span>Streamlit</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-plotly"/></svg><span>Plotly</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-django"/></svg><span>Django</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-fastapi"/></svg><span>FastAPI</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-javascript"/></svg><span>JavaScript</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-typescript"/></svg><span>TypeScript</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-nextdotjs"/></svg><span>Next.js</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-nodedotjs"/></svg><span>Node.js</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-prisma"/></svg><span>Prisma</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-tailwindcss"/></svg><span>Tailwind</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-docker"/></svg><span>Docker</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-netlify"/></svg><span>Netlify</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-claude"/></svg><span>Claude</span></li>
+        <li data-camada="bloco"><svg aria-hidden="true"><use href="#i-langchain"/></svg><span>LangChain</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Bastidor: do rascunho ao ar. Comparador arrastável entre o wireframe e a tela final; depois de montado, um agente
+     pega a alça e arrasta de um lado para o outro. -->
+<section class="secao bastidor" id="bastidor" data-montagem="bastidor">
+  <div class="secao__dentro bastidor__grade">
+    <div class="bastidor__texto">
+      <span class="secao__rotulo" data-camada="texto">Por baixo do capô</span>
+      <h2 class="titulo-cond bastidor__titulo"><span data-camada="texto">Do improviso<span class="pq">.</span></span> <span class="vermelho" data-camada="texto">Ao produto.</span></h2>
+      <p class="bastidor__p" data-camada="texto">Os mesmos dados de faturamento, antes e depois do redesenho: hierarquia, leitura rápida e cor que significa alguma coisa. Arraste para comparar.</p>
+      <p class="bastidor__meta"><span data-camada="texto">Dash Vendas · painel de faturamento / 2025</span><span data-camada="texto">Python · Streamlit · Pandas · Plotly</span></p>
+    </div>
+    <div class="bastidor__peca">
+      <div class="comp" data-camada="foto" data-teste="arraste" data-ajusta="-70,44" style="--p: 50%">
+        <img class="comp__depois" src="/img/bastidor-depois.webp" width="1280" height="800" alt="Dash Vendas depois do redesenho, com cards por unidade" loading="lazy" decoding="async" />
+        <div class="comp__antes"><img src="/img/bastidor-antes.webp" width="1280" height="800" alt="Dash Vendas antes do redesenho" loading="lazy" decoding="async" /></div>
+        <span class="comp__etq comp__etq--antes">Antes</span>
+        <span class="comp__etq comp__etq--depois">Depois</span>
+        <span class="comp__alca" aria-hidden="true"><svg class="ico"><use href="#u-esq-v"/></svg><svg class="ico"><use href="#u-dir-v"/></svg></span>
+        <input class="comp__range" type="range" min="0" max="100" step="1" value="50" aria-label="Comparar o antes e o depois do Dash Vendas" />
+      </div>
+      <p class="comp__legenda"><span data-camada="texto">Arraste para ver a diferença</span><span data-camada="texto">Arraste / setas</span></p>
+    </div>
+  </div>
+</section>

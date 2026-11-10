@@ -1,0 +1,22 @@
+<!-- Barra dos agentes: fixa no pé. Escaneando → contagem de camadas montadas; Tour rola a página sozinho montando
+     cada seção; a velocidade troca entre 1×, 2× e 4×; o último botão monta tudo de novo. -->
+<div class="barra" data-estado="escaneando" role="group" aria-label="Agentes montando a página">
+  <div class="barra__scan" aria-hidden="true">
+    <span>Escaneando a página…</span>
+    <i class="barra__trilho"><i></i></i>
+  </div>
+  <div class="barra__info">
+    <span class="barra__avatares" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+    <span class="barra__agentes"><b>18</b> agentes</span>
+    <span class="barra__camadas"><b class="barra__feitas">0</b> / <span class="barra__total">0</span><span class="barra__palavra"> camadas</span></span>
+    <span class="barra__fim"><span class="barra__palavra">Montada por </span><b class="barra__fim-n">18</b> agentes em <b class="barra__fim-t">0 s</b></span>
+    <i class="barra__trilho barra__progresso" aria-hidden="true"><i></i></i>
+  </div>
+  <span class="barra__acoes">
+    <button class="barra__btn barra__tour" type="button" aria-pressed="false">Tour</button>
+    <button class="barra__btn barra__vel" type="button" aria-label="Velocidade dos agentes: 1×">1×</button>
+    <button class="barra__btn barra__refaz" type="button" aria-label="Montar a página de novo">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M15.6 10.4a5.6 5.6 0 1 1-1.7-4.6" /><path d="M14.4 2.9v3.4H11" /></svg>
+    </button>
+  </span>
+</div>

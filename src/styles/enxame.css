@@ -1,0 +1,184 @@
+/* Montagem pelos agentes.
+   Enquanto a página monta (html.monta), o que ainda não foi montado fica invisível, mas no lugar: o layout já é o
+   final e os agentes medem cada bloco antes de desenhar a caixa dele. */
+html.monta [data-camada]:not([data-camada='quadro']):not([data-camada='marca']):not(.c-pronta):not(.c-viva):not(:has([data-camada])),
+html.monta [data-camada='texto']:not(.c-pronta):not(.c-viva) {
+  opacity: 0;
+}
+/* camada com outras dentro (o bloco vermelho do nome, o chip, o botão): some só o fundo e a borda dela */
+html.monta [data-camada]:not(.c-pronta):has([data-camada]) {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+html.monta [data-camada]:has([data-camada]) {
+  transition: background-color 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.5s var(--ease), scale 0.14s var(--ease), opacity 0.35s var(--ease), translate 0.14s var(--ease);
+}
+html.monta [data-camada='quadro']:not(.c-pronta)::before { opacity: 0; }
+html.monta [data-camada='titulo'].c-viva .letra { opacity: 0; }
+.ch { opacity: 0; }
+.ch.on { opacity: 1; }
+.c-ja,
+.c-ja::before,
+.c-ja::after { transition: none !important; }
+
+/* palco dos agentes: cobre o body inteiro, rola com a página e não aumenta a rolagem */
+.enxame {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  overflow: clip;
+  pointer-events: none;
+}
+
+/* cursores: seta colorida (andando), mira (desenhando uma caixa), barra de texto (digitando) */
+.ag { position: absolute; left: 0; top: 0; will-change: transform; }
+.ag svg {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  max-width: none;               /* o .ag não tem largura: sem isso o reset encolhe o SVG a zero */
+  overflow: visible;
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.6));
+}
+.ag__seta { left: -3.6px; top: -2.4px; }
+.ag__seta path { fill: var(--c); stroke: #fff; stroke-width: 1.3; stroke-linejoin: round; }
+.ag__mira,
+.ag__ibeam { left: -10px; top: -10px; display: none; }
+.ag__mira path { fill: none; stroke: var(--c); stroke-width: 2.4; stroke-linecap: round; }
+.ag__mira path.f { stroke: #fff; stroke-width: 4.8; }
+.ag__ibeam path { fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; }
+.ag__ibeam path.f { stroke: rgba(0, 0, 0, 0.75); stroke-width: 3.8; }
+.ag.is-mira .ag__seta,
+.ag.is-texto .ag__seta { display: none; }
+.ag.is-mira .ag__mira,
+.ag.is-texto .ag__ibeam { display: block; }
+
+/* clique de um agente ao aplicar uma camada */
+.clique {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  border: 1.5px solid var(--c);
+  border-radius: 50%;
+}
+
+/* caixa de seleção: fio azul, quatro alças, etiqueta de medida embaixo e o placeholder cinza */
+.cx {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid var(--sel);
+}
+.cx__fill {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--marcador);
+  opacity: 0;
+}
+.cx__fill--grande { background: var(--marcador-grande); }
+.cx__fill--fundo { background: var(--marcador-quadro); } /* depois da grande: o fundo do hero também é grande */
+.cx__fill svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cx__h {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border: 1px solid var(--sel);
+  opacity: 0;
+}
+.cx__h:nth-of-type(1) { left: -3.5px; top: -3.5px; }
+.cx__h:nth-of-type(2) { right: -3.5px; top: -3.5px; }
+.cx__h:nth-of-type(3) { left: -3.5px; bottom: -3.5px; }
+.cx__h:nth-of-type(4) { right: -3.5px; bottom: -3.5px; }
+.cx.fixa .cx__h { opacity: 1; }
+.cx__tam {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 6px);
+  translate: -50% 0;
+  padding: 3px 5px;
+  border-radius: 3px;
+  background: var(--sel-etiqueta);
+  color: var(--branco);
+  font: 600 12px / 1 var(--sans);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.cx.digitando .cx__tam,
+.cx.digitando .cx__h,
+.cx.sem-medida .cx__tam { opacity: 0; }
+
+/* cursor de texto piscando enquanto um agente digita */
+.caret {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  background: #fff;
+  animation: caret 0.9s steps(1) infinite;
+}
+@keyframes caret { 50% { opacity: 0; } }
+
+/* o símbolo que os agentes rodeiam enquanto escaneiam a página */
+.enx-logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  margin: -30px 0 0 -30px;
+  border-radius: 15px;
+  background: #000;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* copiar: a seta ganha o quadradinho com "+" do alt-arrastar */
+.ag.is-copia::after {
+  content: '+';
+  position: absolute;
+  left: 13px;
+  top: 15px;
+  display: grid;
+  place-items: center;
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  background: var(--c);
+  box-shadow: 0 0 0 1px #fff;
+  font: 700 12px / 1 var(--sans);
+  color: #111;
+}
+
+/* a cópia que um agente arrasta até o lugar do item novo */
+.fantasma {
+  outline: 1px solid var(--sel);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  opacity: 0.94;
+}
+
+/* linha-guia de alinhamento que pisca quando um elemento encaixa */
+.guia {
+  position: absolute;
+  background: #ff3e9a;
+  box-shadow: 0 0 6px rgba(255, 62, 154, 0.6);
+}
+
+/* fios que não são camada (linhas dos números e rodapé do hero): só aparecem quando algo dentro deles foi montado */
+.hero__numeros li,
+.hero__pe { transition: border-color 0.4s var(--ease); }
+html.monta .hero__numeros li:not(:has(.c-pronta)),
+html.monta .hero__pe:not(:has(.c-pronta)) { border-color: transparent; }

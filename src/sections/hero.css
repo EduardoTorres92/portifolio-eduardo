@@ -1,0 +1,299 @@
+/* Hero: um pôster de uma tela, na escala de cena (--u, quadro de 1440×900). PORTFÓLIO cheio em vermelho que escurece
+   para baixo, na largura toda; a foto recortada de perfil na frente dele, sumindo no preto; nome e texto à
+   esquerda, lema e números à direita, faixa de rodapé com fio. */
+.hero {
+  position: relative;
+  height: calc(900 * var(--u));
+  min-height: 560px;
+  overflow: clip;
+}
+.hero__quadro {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero__quadro::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 34% 46% at 52% 48%, rgba(150, 24, 14, 0.26), transparent 70%),
+    radial-gradient(ellipse 70% 60% at 50% 40%, rgba(70, 12, 10, 0.18), transparent 75%);
+  transition: opacity 1s var(--ease);
+}
+
+.hero__a,
+.hero__dir,
+.hero__pe { position: absolute; }
+.hero__a { inset: 0; z-index: 1; }
+
+/* rótulos do alto */
+.hero__papel,
+.hero__status {
+  position: absolute;
+  top: calc(64px + 26 * var(--u));
+  font: 700 max(12px, calc(13.5 * var(--u))) / 1.45 var(--sans);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.hero__papel { left: var(--margem); }
+.hero__papel span { display: block; }
+.hero__papel-1 { color: var(--vermelho-texto); }
+.hero__papel-2 { color: var(--texto-2); }
+.hero__status {
+  right: var(--margem);
+  font-weight: 500;
+  color: var(--texto-2);
+}
+.hero__status .ponto { width: 6px; height: 6px; margin-right: 12px; vertical-align: 0.15em; }
+
+/* PORTFÓLIO: cada letra leva o mesmo degradê (as letras piscam uma a uma quando o título acende) */
+.hero__titulo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(172 * var(--u));
+  z-index: 1;
+  text-align: center;
+  font: 400 min(calc(400 * var(--u)), calc((100vw - 2 * var(--margem)) / 3.9)) / 0.86 var(--display);
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  user-select: none;
+}
+.hero__titulo > span,
+.hero__titulo .letra {
+  background: linear-gradient(180deg, var(--titulo-topo) 8%, #8a1812 52%, var(--titulo-pe) 96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* foto recortada: na frente do título, some no preto embaixo */
+.hero__foto {
+  position: absolute;
+  z-index: 2;
+  left: calc(50% - 290 * var(--u));
+  bottom: calc(70 * var(--u));
+  width: calc(560 * var(--u));
+  pointer-events: none;
+}
+.hero__retrato { display: block; }
+.hero__retrato img {
+  width: 100%;
+  height: auto;
+  -webkit-mask-image: linear-gradient(180deg, #000 66%, transparent 98%), linear-gradient(90deg, transparent 1%, #000 16%, #000 84%, transparent 99%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(180deg, #000 66%, transparent 98%), linear-gradient(90deg, transparent 1%, #000 16%, #000 84%, transparent 99%);
+  mask-composite: intersect;
+}
+
+/* esquerda: quem, cargo, texto, botão, onde */
+.hero__esq {
+  position: absolute;
+  z-index: 3;
+  left: var(--margem);
+  top: calc(318 * var(--u));
+  width: calc(440 * var(--u));
+}
+.hero__quem { display: block; font-weight: 400; }
+.hero__ola {
+  display: block;
+  width: max-content;
+  margin-left: calc(6 * var(--u));
+  font: 600 calc(60 * var(--u)) / 1 var(--mao);
+  color: var(--texto);
+  rotate: -6deg;
+  transform-origin: 0 100%;
+}
+.hero__nome {
+  display: block;
+  margin-top: calc(-4 * var(--u));
+  font: 400 calc(124 * var(--u)) / 0.9 var(--display);
+  letter-spacing: -0.005em;
+  color: var(--texto);
+}
+.hero__cargo {
+  margin-top: calc(20 * var(--u));
+  font: 800 calc(23 * var(--u)) / 1.12 var(--sans);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--vermelho-texto);
+}
+.hero__texto {
+  margin-top: calc(18 * var(--u));
+  max-width: calc(380 * var(--u));
+  font: 400 max(14px, calc(16.5 * var(--u))) / 1.55 var(--sans);
+  color: var(--texto-2);
+}
+.hero__botao {
+  display: inline-flex;
+  margin-top: calc(24 * var(--u));
+  background-color: var(--vermelho);
+  transition: background-color var(--t-micro) var(--ease), scale 0.14s var(--ease);
+}
+.hero__botao > span {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(44 * var(--u));
+  height: max(44px, calc(50 * var(--u)));
+  padding: 0 calc(26 * var(--u));
+  font: 600 max(14px, calc(16 * var(--u))) / 1 var(--sans);
+  color: var(--branco);
+}
+.hero__botao svg { width: 18px; height: 18px; transition: translate 0.2s var(--ease); }
+@media (hover: hover) and (pointer: fine) {
+  html:not(.rolando) .hero__botao:hover { background-color: #ff3a2e; }
+  html:not(.rolando) .hero__botao:hover svg { translate: 0 3px; }
+}
+.hero__local {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: calc(22 * var(--u));
+  font: 500 max(12px, calc(13 * var(--u))) / 1 var(--sans);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+}
+.hero__local svg { width: 16px; height: 16px; color: var(--vermelho-texto); }
+
+/* direita: lema e números */
+.hero__dir {
+  z-index: 3;
+  right: var(--margem);
+  top: calc(462 * var(--u));
+  width: calc(284 * var(--u));
+}
+.hero__lema {
+  display: flex;
+  align-items: center;
+  gap: calc(22 * var(--u));
+  font: 500 max(14px, calc(17 * var(--u))) / 1.5 var(--sans);
+  color: var(--texto);
+}
+.hero__aster { width: calc(64 * var(--u)); height: calc(64 * var(--u)); }
+.hero__aster svg { width: 46%; height: 46%; stroke-width: 1.3; }
+.hero__numeros { margin-top: calc(26 * var(--u)); }
+.hero__numeros li { border-bottom: 1px solid var(--fio-forte); }
+.hero__num-link {
+  display: grid;
+  grid-template-columns: calc(118 * var(--u)) 1fr;
+  align-items: center;
+}
+.hero__numeros li:not(:has(a)) { display: grid; grid-template-columns: calc(118 * var(--u)) 1fr; align-items: center; }
+.hero__numeros li { padding: calc(11 * var(--u)) 0; }
+.hero__numeros strong {
+  font: 400 calc(58 * var(--u)) / 1 var(--display);
+  color: var(--vermelho-texto);
+}
+.hero__numeros strong .mais { font-size: 0.5em; }
+.hero__numeros li > span,
+.hero__num-link > span {
+  font: 500 max(12px, calc(13 * var(--u))) / 1.45 var(--sans);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+}
+.hero__num-link > span { color: var(--texto); }
+.hero__num-link svg {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+  color: var(--vermelho-texto);
+  vertical-align: -0.1em;
+  transition: translate 0.2s var(--ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  html:not(.rolando) .hero__num-link:hover svg { translate: 2px -2px; }
+}
+
+/* rodapé do hero: fio e três textos (o meio fica para a barra dos agentes) */
+.hero__pe {
+  z-index: 3;
+  left: var(--margem);
+  right: var(--margem);
+  bottom: 0;
+  height: calc(70 * var(--u));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--fio-forte);
+}
+.hero__caso {
+  display: flex;
+  align-items: center;
+  gap: calc(18 * var(--u));
+  font: 600 max(12px, calc(13.5 * var(--u))) / 1 var(--sans);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.hero__play { width: calc(48 * var(--u)); height: calc(48 * var(--u)); color: var(--texto); }
+.hero__play svg { width: 40%; height: 40%; }
+.hero__caso-tipo { margin-left: calc(16 * var(--u)); color: var(--texto-3); font-weight: 500; }
+@media (hover: hover) and (pointer: fine) {
+  html:not(.rolando) .hero__caso:hover .hero__play { background-color: var(--vermelho); border-color: var(--vermelho); }
+}
+.hero__anos {
+  font: 500 max(12px, calc(13 * var(--u))) / 1 var(--sans);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+}
+
+/* ---------- celular: coluna, em três montagens (data-parte) ---------- */
+@media (max-width: 760px) {
+  .hero { height: auto; min-height: 0; padding: 78px var(--margem) 0; overflow: clip; }
+  .hero__a, .hero__dir, .hero__pe { position: relative; inset: auto; }
+  .hero__papel, .hero__status { position: static; font-size: 12px; }
+  .hero__status { margin-top: 14px; }
+  .hero__titulo {
+    position: relative;
+    top: auto;
+    margin-top: 34px;
+    font-size: calc((100vw - 2 * var(--margem)) / 3.9);
+  }
+  .hero__foto {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: 92%;
+    margin: -24% auto 0;
+  }
+  .hero__esq { position: relative; left: auto; top: auto; width: auto; margin-top: -12%; }
+  /* sem a foto, o nome não sobe por cima do PORTFÓLIO */
+  .hero__a:not(:has(.hero__foto)) .hero__esq { margin-top: 28px; }
+  .hero__ola { font-size: 52px; }
+  .hero__nome { font-size: 104px; }
+  .hero__cargo { font-size: 22px; margin-top: 18px; }
+  .hero__texto { max-width: none; font-size: 16px; }
+  .hero__botao { display: flex; }
+  .hero__botao > span { width: 100%; justify-content: space-between; height: 52px; font-size: 16px; }
+  .hero__local { font-size: 12px; }
+  .hero__dir { right: auto; top: auto; width: auto; margin-top: 56px; }
+  .hero__lema { font-size: 16px; gap: 18px; }
+  .hero__aster { width: 56px; height: 56px; }
+  .hero__numeros { margin-top: 26px; }
+  .hero__numeros li { padding: 14px 0; }
+  .hero__numeros li:not(:has(a)), .hero__num-link { grid-template-columns: 104px 1fr; }
+  .hero__numeros strong { font-size: 58px; }
+  .hero__numeros li > span, .hero__num-link > span { font-size: 12px; }
+  .hero__pe {
+    left: auto; right: auto; bottom: auto;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    margin-top: 44px;
+    padding: 22px 0 28px;
+  }
+  .hero__play { width: 46px; height: 46px; }
+  .hero__caso { font-size: 12px; gap: 14px; }
+  .hero__caso-tipo { display: none; }
+  .hero__anos { font-size: 12px; }
+}
+
+/* notebook: a barra dos agentes encosta no rótulo do caso */
+@media (max-width: 1360px) and (min-width: 761px) {
+  .hero__caso-tipo { display: none; }
+}
