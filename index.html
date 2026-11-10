@@ -11,6 +11,7 @@
          transiciona do estilo padrão do navegador para o da página -->
     <style>html { background: #0b0909; } html:not(.com-estilo) body { visibility: hidden; animation: mostra 0s 6s forwards; } @keyframes mostra { to { visibility: visible; } } html:not(.assentou) *, html:not(.assentou) ::before, html:not(.assentou) ::after { transition: none !important; }</style>
     <noscript><style>body { visibility: visible !important; animation: none; }</style></noscript>
+    <link rel="preload" as="image" href="/img/eduardo-perfil.webp" fetchpriority="high" />
     <script>
       // ?reel (ou ?reel=0.75): para gravar a tela com o celular. Baixa só o branco das letras (padrão 0.82, entre 0.5 e
       // 1) e esconde a barra de rolagem; o resto da página fica igual.
