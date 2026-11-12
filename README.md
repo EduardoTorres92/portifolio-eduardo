@@ -2,7 +2,7 @@
 
 Portfólio de Eduardo Torres, dev Vibe Coding (Python, dados e automações com IA). A página se monta na frente de quem visita: um enxame de cursores de editor desenha cada bloco, digita os textos, copia os cards e testa os componentes.
 
-**No ar:** https://portfolio-eduardo-eta-plum.vercel.app
+**No ar:** https://eduardotorres-dev.com.br
 
 ## Rodar
 
